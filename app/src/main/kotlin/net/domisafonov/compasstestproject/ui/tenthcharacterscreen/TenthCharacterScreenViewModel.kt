@@ -2,15 +2,14 @@ package net.domisafonov.compasstestproject.ui.tenthcharacterscreen
 
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
-import net.domisafonov.compasstestproject.BuildConfig
-import net.domisafonov.compasstestproject.domain.repository.PageRepository
+import kotlinx.coroutines.flow.Flow
+import net.domisafonov.compasstestproject.domain.usecase.ObserveTenthCharacterTextUc
 import javax.inject.Inject
 
-// FIXME: remove scaffolding
 @HiltViewModel
 class TenthCharacterScreenViewModel @Inject constructor(
-    repo: PageRepository,
+    observeTenthCharacterTextUc: ObserveTenthCharacterTextUc,
 ) : ViewModel() {
 
-    val text = repo.observePage("${BuildConfig.PAGE_API_URL}/about/")
+    val text: Flow<String?> = observeTenthCharacterTextUc.execute()
 }

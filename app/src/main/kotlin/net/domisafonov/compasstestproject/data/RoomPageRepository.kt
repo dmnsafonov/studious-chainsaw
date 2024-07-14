@@ -14,6 +14,7 @@ import net.domisafonov.compasstestproject.data.pagecache.toPage
 import net.domisafonov.compasstestproject.domain.model.Page
 import net.domisafonov.compasstestproject.domain.repository.PageRepository
 import timber.log.Timber
+import java.util.Collections
 import java.util.Date
 import java.util.WeakHashMap
 import kotlin.time.Duration.Companion.milliseconds
@@ -31,7 +32,7 @@ class RoomPageRepository(
         private val TIMEOUT = 5.minutes
     }
 
-    private val inProgressUrls = WeakHashMap<RequestKey, Unit>()
+    private val inProgressUrls = Collections.synchronizedMap(WeakHashMap<RequestKey, Unit>())
 
     override fun observePage(url: String): Flow<Page?> = flow {
 
