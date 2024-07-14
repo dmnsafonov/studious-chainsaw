@@ -24,7 +24,10 @@ fun ComposeApp(
     val appState = remember { appState }
 
     CompassTestProjectTheme {
-        Scaffold(modifier = modifier.fillMaxSize()) { innerPadding ->
+        Scaffold(
+            modifier = modifier.fillMaxSize(),
+            topBar = { TopBar(appState) },
+        ) { innerPadding ->
             NavHost(
                 appState = appState,
                 modifier = Modifier.padding(innerPadding),
