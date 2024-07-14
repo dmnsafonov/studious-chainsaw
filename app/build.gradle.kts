@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.targets.js.binaryen.BinaryenRootPlugin.Companion.kotlinBinaryenExtension
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
@@ -22,6 +24,10 @@ android {
     }
 
     buildTypes {
+        all {
+            buildConfigField("String", "PAGE_API_URL", "\"https://www.compass.com/\"")
+        }
+
         release {
             isMinifyEnabled = true
             proguardFiles(
@@ -74,9 +80,11 @@ dependencies {
     kapt(libs.hilt.compiler)
 
     implementation(libs.room.runtime)
+    implementation(libs.room.ktx)
     ksp(libs.room.compiler)
 
     implementation(libs.retrofit)
+    implementation(libs.retrofit.converter.scalars)
 
     implementation(libs.timber)
 
