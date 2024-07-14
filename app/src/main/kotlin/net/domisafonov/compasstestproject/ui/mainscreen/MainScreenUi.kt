@@ -37,18 +37,20 @@ fun MainScreenUi(
         ) {
             TenthCharacterScreenUi(
                 modifier = Modifier.fillMaxSize()
-                    .padding(4.dp)
+                    .padding(4.dp),
+                doCompactView = true,
             )
         }
 
         Card(
             modifier = Modifier.fillMaxWidth()
                 .weight(1f)
-                .clickable { onWordCountClick() }
+                .clickable { onWordCountClick() },
         ) {
             WordCountScreenUi(
                 modifier = Modifier.fillMaxSize()
-                    .padding(4.dp)
+                    .padding(4.dp),
+                doCompactView = true,
             )
         }
     }

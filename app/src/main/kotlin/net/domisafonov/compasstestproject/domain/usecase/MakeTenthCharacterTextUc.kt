@@ -13,6 +13,6 @@ class MakeTenthCharacterTextUcImpl : MakeTenthCharacterTextUc {
             if (n % 10 == 0) codePointList += cp
             ++n
         }
-        return codePointList.joinToString { String(Character.toChars(it)) }
+        return codePointList.joinToString(separator = "") { String(Character.toChars(it)) }
     }
 }
