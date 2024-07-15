@@ -27,7 +27,7 @@ fun TenthCharacterScreenUi(
 
     val viewModel: TenthCharacterScreenViewModel = hiltViewModel()
 
-    val text by viewModel.text.map { it ?: "TODO" }.collectAsState(initial = "TODO")
+    val text by viewModel.text.map { it.orEmpty() }.collectAsState(initial = "")
 
     if (doCompactView) {
         Text(

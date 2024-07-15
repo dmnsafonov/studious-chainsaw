@@ -27,7 +27,7 @@ fun WordCountScreenUi(
 
     val viewModel: WordCountScreenViewModel = hiltViewModel()
 
-    val text by viewModel.wordCountText.map { it ?: "TODO" }.collectAsState(initial = "TODO")
+    val text by viewModel.wordCountText.map { it.orEmpty() }.collectAsState(initial = "")
 
     val pullRefreshState = rememberPullToRefreshState()
     val isRefreshCompleted by viewModel.isRefreshCompleted.collectAsState()
