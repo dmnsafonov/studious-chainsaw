@@ -74,9 +74,13 @@ class RoomPageRepository(
                     contents = body,
                 )
             )
+
+            Timber.v("Page update success")
         } finally {
             inProgressUrls.remove(key)
         }
+
+        Timber.v("Page update completed")
     }
 
     private data class RequestKey(val url: String)

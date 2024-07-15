@@ -25,7 +25,7 @@ fun NavHost(
 ) {
     val mainLabel = stringResource(id = R.string.main_screen_label)
     val tenthLabel = stringResource(id = R.string.tenth_screen_label)
-    val wordCountLabel = stringResource(id = R.string.word_count_label)
+    val wordCountLabel = stringResource(id = R.string.word_count_screen_label)
 
     NavHost(
         navController = appState.navController,

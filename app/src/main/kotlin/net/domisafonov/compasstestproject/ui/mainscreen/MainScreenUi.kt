@@ -7,13 +7,17 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Card
+import androidx.compose.material3.LocalTextStyle
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import net.domisafonov.compasstestproject.R
 import net.domisafonov.compasstestproject.ui.tenthcharacterscreen.TenthCharacterScreenUi
-import net.domisafonov.compasstestproject.ui.theme.CompassTestProjectTheme
 import net.domisafonov.compasstestproject.ui.wordcountscreen.WordCountScreenUi
 
 @Composable
@@ -26,40 +30,61 @@ fun MainScreenUi(
     val viewModel: MainScreenViewModel = hiltViewModel()
 
     Column(
-        modifier = modifier.fillMaxSize()
+        modifier = modifier
+            .fillMaxSize()
             .padding(4.dp),
         verticalArrangement = Arrangement.spacedBy(4.dp)
     ) {
         Card(
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier
+                .fillMaxWidth()
                 .weight(1f)
                 .clickable() { onTenthClick() }
         ) {
-            TenthCharacterScreenUi(
-                modifier = Modifier.fillMaxSize()
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
                     .padding(4.dp),
-                doCompactView = true,
-            )
+                verticalArrangement = Arrangement.spacedBy(4.dp),
+            ) {
+                Text(
+                    text = stringResource(id = R.string.tenth_screen_label),
+                    modifier = Modifier.align(Alignment.CenterHorizontally),
+                    style = MaterialTheme.typography.headlineSmall,
+                )
+
+                TenthCharacterScreenUi(
+                    modifier = Modifier
+                        .fillMaxSize(),
+                    doCompactView = true,
+                )
+            }
         }
 
         Card(
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier
+                .fillMaxWidth()
                 .weight(1f)
                 .clickable { onWordCountClick() },
         ) {
-            WordCountScreenUi(
-                modifier = Modifier.fillMaxSize()
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
                     .padding(4.dp),
-                doCompactView = true,
-            )
-        }
-    }
-}
+                verticalArrangement = Arrangement.spacedBy(4.dp),
+            ) {
+                Text(
+                    text = stringResource(id = R.string.word_count_screen_label),
+                    modifier = Modifier.align(Alignment.CenterHorizontally),
+                    style = MaterialTheme.typography.headlineSmall,
+                )
 
-@Preview(showBackground = true)
-@Composable
-fun MainScreenPreview() {
-    CompassTestProjectTheme {
-        MainScreenUi()
+                WordCountScreenUi(
+                    modifier = Modifier
+                        .fillMaxSize(),
+                    doCompactView = true,
+                )
+            }
+        }
     }
 }
