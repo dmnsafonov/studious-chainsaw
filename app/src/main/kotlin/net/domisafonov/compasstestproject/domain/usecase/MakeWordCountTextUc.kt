@@ -1,5 +1,8 @@
 package net.domisafonov.compasstestproject.domain.usecase
 
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.withContext
+
 /**
  * Count words and output a string with a count for each unique word.
  *
@@ -16,12 +19,14 @@ fun interface MakeWordCountTextUc {
     suspend fun execute(src: String): String
 }
 
-class MakeWordCountTextUcImpl : MakeWordCountTextUc {
+class MakeWordCountTextUcImpl(
+    private val ioDispatcher: CoroutineDispatcher,
+) : MakeWordCountTextUc {
 
-    override suspend fun execute(src: String): String {
+    override suspend fun execute(src: String): String = withContext(ioDispatcher) {
         val words = mutableMapOf<String, Int>()
         src.split("\\s++".toPattern()).forEach { words[it] = (words[it] ?: 0) + 1 }
-        return words.toSortedMap().entries.joinToString(separator = "\n") { (word, count) ->
+        words.toSortedMap().entries.joinToString(separator = "\n") { (word, count) ->
             "\"$word\": $count"
         }
     }

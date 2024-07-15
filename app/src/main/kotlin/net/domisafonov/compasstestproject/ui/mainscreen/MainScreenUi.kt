@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Card
-import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -15,7 +14,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
 import net.domisafonov.compasstestproject.R
 import net.domisafonov.compasstestproject.ui.tenthcharacterscreen.TenthCharacterScreenUi
 import net.domisafonov.compasstestproject.ui.wordcountscreen.WordCountScreenUi
@@ -26,8 +24,6 @@ fun MainScreenUi(
     onTenthClick: () -> Unit = {},
     onWordCountClick: () -> Unit = {},
 ) {
-
-    val viewModel: MainScreenViewModel = hiltViewModel()
 
     Column(
         modifier = modifier

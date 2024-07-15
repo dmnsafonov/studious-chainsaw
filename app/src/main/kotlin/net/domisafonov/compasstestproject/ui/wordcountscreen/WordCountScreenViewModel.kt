@@ -5,8 +5,10 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.shareIn
 import kotlinx.coroutines.launch
 import net.domisafonov.compasstestproject.domain.usecase.ObserveWordCountTextUc
 import net.domisafonov.compasstestproject.domain.usecase.RefreshAboutPageUc
@@ -19,6 +21,7 @@ class WordCountScreenViewModel @Inject constructor(
 ) : ViewModel() {
 
     val wordCountText: Flow<String?> = observeWordCountTextUc.execute()
+        .shareIn(viewModelScope, SharingStarted.Eagerly, replay = 1)
 
     private val _isRefreshCompleted = MutableStateFlow(false)
     val isRefreshCompleted: StateFlow<Boolean> = _isRefreshCompleted.asStateFlow()

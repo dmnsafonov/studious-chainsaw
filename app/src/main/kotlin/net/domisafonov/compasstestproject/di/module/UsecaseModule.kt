@@ -5,6 +5,8 @@ import dagger.Provides
 import dagger.Reusable
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import kotlinx.coroutines.CoroutineDispatcher
+import net.domisafonov.compasstestproject.di.IoDispatcher
 import net.domisafonov.compasstestproject.domain.repository.PageRepository
 import net.domisafonov.compasstestproject.domain.usecase.MakeTenthCharacterTextUc
 import net.domisafonov.compasstestproject.domain.usecase.MakeTenthCharacterTextUcImpl
@@ -23,7 +25,11 @@ object UsecaseModule {
 
     @Provides
     @Reusable
-    fun makeWordCountText(): MakeWordCountTextUc = MakeWordCountTextUcImpl()
+    fun makeWordCountText(
+        @IoDispatcher ioDispatcher: CoroutineDispatcher,
+    ): MakeWordCountTextUc = MakeWordCountTextUcImpl(
+        ioDispatcher = ioDispatcher,
+    )
 
     @Provides
     @Reusable
@@ -37,7 +43,11 @@ object UsecaseModule {
 
     @Provides
     @Reusable
-    fun makeTenthCharacterText(): MakeTenthCharacterTextUc = MakeTenthCharacterTextUcImpl()
+    fun makeTenthCharacterText(
+        @IoDispatcher ioDispatcher: CoroutineDispatcher,
+    ): MakeTenthCharacterTextUc = MakeTenthCharacterTextUcImpl(
+        ioDispatcher = ioDispatcher,
+    )
 
     @Provides
     @Reusable
