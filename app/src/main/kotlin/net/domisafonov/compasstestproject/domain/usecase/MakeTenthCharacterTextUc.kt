@@ -3,6 +3,10 @@ package net.domisafonov.compasstestproject.domain.usecase
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
 
+/**
+ * Takes every 10th unicode code point in the string, starting with the 10th,
+ * into a new string.
+ */
 fun interface MakeTenthCharacterTextUc {
     suspend fun execute(src: String): String
 }

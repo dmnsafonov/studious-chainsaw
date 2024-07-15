@@ -13,6 +13,9 @@ import kotlinx.coroutines.withContext
  * "is": 1
  * "squirrel": 1
  * ```
+ *
+ * Uses the java regex definition of a "space character", some "space-like"
+ * characters special from Unicode are not accounted for.
  */
 fun interface MakeWordCountTextUc {
 
@@ -26,6 +29,7 @@ class MakeWordCountTextUcImpl(
     override suspend fun execute(src: String): String = withContext(ioDispatcher) {
         val words = mutableMapOf<String, Int>()
         src.split("\\s++".toPattern()).forEach { words[it] = (words[it] ?: 0) + 1 }
+        words.remove("")
         words.toSortedMap().entries.joinToString(separator = "\n") { (word, count) ->
             "\"$word\": $count"
         }
