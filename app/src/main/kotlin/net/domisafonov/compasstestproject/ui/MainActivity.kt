@@ -6,8 +6,6 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
-import net.domisafonov.compasstestproject.AppState
-import net.domisafonov.compasstestproject.ComposeApp
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {

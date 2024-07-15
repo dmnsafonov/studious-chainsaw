@@ -10,7 +10,6 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.ComposeNavigator
 import androidx.navigation.compose.NavHost
 import androidx.navigation.get
-import net.domisafonov.compasstestproject.AppState
 import net.domisafonov.compasstestproject.R
 import net.domisafonov.compasstestproject.ui.tenthcharacterscreen.TenthCharacterScreenUi
 import net.domisafonov.compasstestproject.ui.mainscreen.MainScreenUi

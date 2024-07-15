@@ -1,4 +1,4 @@
-package net.domisafonov.compasstestproject
+package net.domisafonov.compasstestproject.ui
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -8,7 +8,6 @@ import androidx.compose.runtime.Stable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
-import net.domisafonov.compasstestproject.ui.NavHost
 import net.domisafonov.compasstestproject.ui.theme.CompassTestProjectTheme
 
 @Stable

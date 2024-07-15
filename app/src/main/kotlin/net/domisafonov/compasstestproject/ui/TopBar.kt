@@ -1,4 +1,4 @@
-package net.domisafonov.compasstestproject
+package net.domisafonov.compasstestproject.ui
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.ArrowBack
@@ -13,7 +13,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.res.stringResource
 import kotlinx.coroutines.flow.map
-import net.domisafonov.compasstestproject.ui.MAIN_NAV_ID
+import net.domisafonov.compasstestproject.R
 
 @Composable
 @OptIn(ExperimentalMaterial3Api::class)

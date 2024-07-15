@@ -9,7 +9,7 @@ import java.util.Date
 data class RoomPage(
     @PrimaryKey val url: String,
     val date: Date,
-    val contents: String, // expecting only normal utf-8
+    val contents: String, // expecting only normal utf
 )
 
 fun RoomPage.toPage(): Page = Page(
